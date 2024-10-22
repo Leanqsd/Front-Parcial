@@ -2,7 +2,7 @@
 // importaciones locales
 import { useBookStore } from '@/stores/BookStore';
 import type { Book } from '@/models/BookModel'
-
+import { useCartStore } from '@/stores/CartStore';
 // librerias
 import { BookOpenIcon, ShoppingCartIcon, PlusCircleIcon } from '@heroicons/vue/24/outline';
 import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
@@ -10,6 +10,8 @@ import 'vue3-carousel/dist/carousel.css'
 
 const bookStore = useBookStore();
 const featuredBooks: Book[] = bookStore.getFeatured();
+const cartStore = useCartStore();
+
 
 // Parcial: Explica como funciona el feature component, como muestra los libros recomendados y como los obtiene?
 
@@ -30,6 +32,12 @@ const cSettings = {
         },
 
     }
+}
+
+
+
+const addToCart = (book) => {
+    cartStore.addToCart(book);
 }
 
 </script>
@@ -64,7 +72,7 @@ const cSettings = {
                                 class="block rounded-lg bg-transparent py-1.5 px-4 font-medium text-slate-200 transition-colors hover:bg-slate-900 active:bg-slate-900 disabled:opacity-50">Mas
                                 del Autor</button>
 
-                            <button
+                            <button @click="addToCart(book)"
                                 class="flex flex-row rounded-lg border border-slate-200 bg-slate-500 py-1.5 justify-between px-4 font-medium text-white transition-colors hover:bg-slate-950 active:bg-slate-950 disabled:opacity-50">
                                 <PlusCircleIcon class="text-2xl size-6 text-slate-200 m-auto" />
                                 <span class="w-2"></span>
