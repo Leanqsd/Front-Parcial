@@ -91,6 +91,15 @@ li:hover {
   flex-direction: column; /* Alinea los textos verticalmente */
 }
 
+.bookData {
+  width: 200px;
+  max-width: 200px; /* tamaño maximo que puede tener */
+}
+
+.deleteBtn {
+  align-self: center; /* centra el boton dentro del div */
+}
+
 .title {
   font-size: 1.2em; /* Tamaño de fuente más grande para el título */
   margin-bottom: 5px; /* Espacio debajo del título */

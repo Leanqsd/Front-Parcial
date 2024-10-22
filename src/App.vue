@@ -48,7 +48,7 @@ function openCloseSidebar() {
       </RouterLink>
       <div class="bag-icon" @click="openCloseSidebar()">
         <!-- modificar con la cantidad de items en carro. Si el carro esta vacio. -->
-        <div class="qty-tag">{{ cartStore.cartItems.length }}</div>
+        <div class="qty-tag">{{ cartStore.totalItems }}</div>
         <ShoppingBagIcon class="w-6 mr-2 text-slate-200" />
       </div>
     </div>
@@ -100,7 +100,7 @@ nav {
 
 
 .sidebar-content {
-  width: 400px;
+  width: 450px;
   max-height: 100vh;
   height: 100vh;
   background: #fff;
